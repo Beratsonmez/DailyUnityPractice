@@ -1,0 +1,12 @@
+# Unity Git Ignore
+Library
+Temp
+.csproj
+.sln
+.vs
+Logs
+UserSettings
+obj
+.idea
+.vscode
+Packages

@@ -1,5 +1,6 @@
 using Unity.Mathematics;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class RaycastTests : MonoBehaviour
 {
@@ -25,22 +26,13 @@ public class RaycastTests : MonoBehaviour
             if (Physics.Raycast(origin, direction, out hit, 15f))
             {
                 Debug.DrawLine(origin, hit.point, Color.red, 15f);
-                Vector3 cachedNormal = hit.normal;
-                Vector3 newOrigin = hit.point + cachedNormal * 0.1f;
-                Vector3 newDirection = cachedNormal;
-
-                float angle = Vector3.Angle(direction, hit.normal);
-
+                
                 Vector3 reflectDir = Vector3.Reflect(direction, hit.normal);
 
-                reflectDir = Quaternion.AngleAxis(angleAdjustment, hit.normal) * reflectDir;
+                reflectDir = Quaternion.AngleAxis(Random.Range(-5f,5f), hit.normal)* reflectDir;
+
                 origin = hit.point + reflectDir * 0.01f;
                 direction = reflectDir;
-
-                if (Physics.Raycast(origin, direction, out hit, 10f))
-                {
-                    Debug.DrawRay(origin, direction, Color.red, 15f);
-                }
             }
             else
             {

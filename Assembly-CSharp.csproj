@@ -62,6 +62,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Shared\RaycastTests.cs" />
+    <Compile Include="Assets\Scripts\BeamMech\LaserBeam.cs" />
     <Compile Include="Assets\Scripts\Shared\PlayerMovement.cs" />
   </ItemGroup>
   <ItemGroup>
